@@ -1,0 +1,426 @@
+Defense
+•	Scan the network to identify vulnerable systems.
+•	Patch the affected systems.
+•	The best remediation effort is to patch the affected systems when the vendor releases the patch.
+•	Create a mitigation plan in the interim. What additional steps can be taken to prevent/limit the exposure?
+•	In some cases, a vulnerability may be reported and a patch is not yet available.
+•	In many cases, patching takes time (testing, change management process, etc). There will be a period of time that the systems are vulnerable before you can patch.
+•	Add new signatures to monitoring solutions (SIEM, HIDS, NIDS, etc).
+•	Check logs and monitoring systems for any indicators of attack/compromise.
+Offense
+•	Create POC of a successful exploit.
+•	This will help understand and illustrate the impact of the vulnerability. Can answer questions such as:
+•	What is the difficulty of the exploit? Can it be done by a malicious user with little to no access/knowledge of the infrastructure?
+•	If the vulnerability is successfully exploited, what damage can be caused? (data leak, root access, etc).
+•	Once patching has been complete:
+•	Confirm that the systems are no longer vulnerable by performing remediation testing.
+•	Identify IOC/IOA and give information to the defensive team for monitoring.
+•	Test defenses by simulating attack/compromise.
+
+Roles
+There are several roles within information security. These roles all share the same ultimate goal: reducing risk. As a security engineer, you need to understand the different roles and how they contribute to that goal.
+The roles can fall into different categories. These categories are: Strategy, Execution, and Compliance. Here are a few examples of roles that fall within these categories:
+•	Strategy
+•	Chief Information Security Officer (CISO)
+•	Directors
+•	Execution
+•	Security Engineers
+•	Security Analysts
+•	Security Architects
+•	Compliance
+•	Compliance Analyst
+ 
+Roles
+Specializations
+There are specializations within the roles. Here are some examples of specializations for a security engineer:
+•	Application Security
+•	Network/Systems Security
+•	Incident Response
+•	Forensics
+
+The role of an security professional is to protect the organization from potential risks. The difference is how they go about it. Some role are more focused on the figuring out what a malicious actor may do, while others are focused on protecting against those actions. Each role - however different - is an important piece of the overall security posture.
+
+Security in and of itself is a big issue. The generic task of securing an organization can be daunting. It is necessary to look at different aspects of how we do business to address the “big” security issues. In this lesson, we will cover some large security issues, examples of how those issues can impact a company, and how you can properly inform yourself about emerging issues.
+Some examples of big security issues that have impacted the world:
+•	Heartbleed - Heartbleed is a vulnerability in a popular open source library OpenSSL. This vulnerability allowed an attacker to circumvent the encryption provided by this library. The result is an attacker could view encrypted data in transit.
+•	Ransomware - an attacker renders your data unusable by encrypting it and demands a ransom to get a key to decrypt your data
+It is important to understand what can impact your organization. It helps to break up some functions of security and solve the issues that pertain to your organization.
+•	User Security - You need to be aware of attacks that target users attacks such as
+•	Phishing - an attempt to circumvent security measures through digital communication such as email. Most commonly, an attacker is trying to get a user to click on a malicious link by crafting a fake email.
+•	Ransomware - an attacker renders your data unusable by encrypting it and demands a ransom to get a key to decrypt your data. Phishing is a common vector for this type of attack
+•	Social Engineering - In a word, this is conning. A malicious party will get a user to grant them access that they shouldn't have by masquerading as a legitimate party.
+•	Application Security - Deals with the security of custom-built applications. Also known as product security.
+•	Network/Infrastructure Security - Concerned with the security of your network and internal infrastructure.
+
+Staying informed is critical for a security professional. Here are some ways you can stay informed:
+Technology Partners	Government	Security Organizations	Security News Sites
+Microsoft	US-CERT	SANS ISC	Dark Reading
+Red Hat	NIST NVD		Hacker News
+Ubuntu			CSO Online
+Strategies for staying informed:
+•	Social Media
+•	RSS Feeds
+•	Email Lists
+•	Routines
+
+A Breach Example
+ 
+An Apache Struts Breach
+It's important to understand security issues as they are identified and also understand breaches so we can better defend ourselves
+
+Compliance can help us understand the external factors in our information security strategy.
+Governance is the overall management of an organization.
+Privacy dictates what can be done with personal information, and security ensures that personal information is protected.
+
+Security Principles
+Lesson Overview
+•	CIA Triad = Confidentiality – Integrity - Availability
+•	Authentication, Authorization, Non-Repudiation
+•	Principles of Secure Design
+•	Security Strategies
+
+ 
+CIA Triad
+CIA Triad
+•	Confidentiality: Keeping data secret or private.
+•	Integrity: Ensuring the legitimacy of data so it can be trusted.
+•	Availability: Ensuring networks, systems, and applications are up and running.
+
+Authentication Factors:
+•	Knowledge - Something you know.
+•	Possession - Something you have.
+•	Inherence - Something you are.
+•	Location - Where you are.
+•	Behavior - Something you do.
+ 
+Authentication Factors
+SFA, DFA, and MFA
+Single, Dual, and Multi-Factor Authentication are all important forms of authentication you'll encounter. The more types of authentication are required the more secure, and more complicated, your system will become.
+ 
+Multi-Tenant and Single-Tenant
+In a multi-tenant system, data is commingled with other user's data. Meanwhile, in a single-tenant system, your data is in a completely isolated environment.
+
+Non-Repudiation
+Refers to a person's inability to deny something. Basically, someone cannot claim they did not do something. A user cannot pretend they didn't do an action they did.
+
+ 
+Authorization, Authentication, and Non-Repudiation
+Authentication
+Anyone could access the email server.
+Authorization
+Without proper authorization, a user can access any other users' email.
+Non-Repudiation
+The inability to trust the veracity of a message or document isn't just an inconvenience, it could be disastrous. Just think of the impact on the world if we couldn't trust that the message or document hasn't been changed. This is why digital signatures are so important.
+
+Principles of Secure Design and Establishing Security Requirements
+Secure design is a proactive security approach. Secure design is the process of building an application that has been designed with security in mind from the ground up. This is opposed to a more reactive approach of building an application and attempting to secure it after it has been developed.
+OWASP Secure Design Principles
+ 
+OWASP Secure Design Principles
+1.	Minimize Attack Surface
+2.	Establish Secure Defaults
+3.	Principle of Least Privilege
+4.	Defense in Depth
+5.	Fail Securely
+6.	Don't Trust Services
+7.	Separation of Duties
+8.	Avoid Security by Obscurity
+9.	Keep Security Simple
+10.	Fix Security Issues Correctly
+
+Secure Principles Design
+Solution
+•	No direct database access for users.
+•	For application access, create a system user specific to the application.
+•	The system user only has access to perform the necessary functions of the application (if the application server is compromised, the attacker will be able to access the database server as that user). Do not run as root or admin.
+•	Grant granular access to the tables within the database. For instance, the login application only needs access to the user table, not the entire database.
+
+	Security Strategies
+Security Strategy
+It is critical for any organization to set a script for how you improve your security posture. The strategy defines the overall direction of the security department as well as establishes the organization’s risk tolerance.
+This strategy is outlined via policies.
+In this section, we won’t go into details about how to establish a security. We will cover some of the aspects of how a company communicates the security strategy as well as how it demonstrates adherence to the security strategy. Specifically policies along with their enforcement and verification.
+•	Policies - A formal written statement. States what can and cannot be done.
+•	Standards - Mandatory set of actions or rules that support the policy.
+•	Procedures - Step-by-step process for achieving a mandate
+•	Guidelines - Non-mandatory set of best practices or recommendations
+
+A Few Strategies:
+•	Create a password policy based on industry best practices.
+•	Create an education or awareness campaign. Inform users of the new policy
+•	Work with IT teams to enforce adherence based on the technical capabilities of the authentication system (i.e. forcing strong passwords, rotation, etc).
+•	Provide tools to enable users to comply with the requirements. For example, providing a secure password vault option can obviate the need for users to write passwords down or store via non-secure methods (text files).
+•	Conduct periodic audits to ensure compliance.
+
+Practical Cryptography
+In this lesson, we will be covering several different strategies for protecting data and communications.
+•	Encryption
+•	Hashing
+•	Signing
+•	Certificates
+•	PKI
+Encryption vs Hashing
+Encryption
+Process of scrambling information so that it can only be read by someone with the ability to decrypt the information.
+Symmetric Encryption - One key. The same key is used for both encrypting and decrypting.
+Asymmetric Encryption - Two keys. One key is used for encrypting and a different key is used for decrypting.
+Hashing
+Process of taking any input and converting it into a fixed-length output.
+A few characteristics about hashing:
+•	One way (irreversible)
+•	Output is a fixed-length
+•	Hash value is 100% unique to the input
+Salt
+Adding a unique value to the beginning or end of a value you intend to hash.
+
+Rainbow Table - A rainbow table is a precomputed database of hash values and their corresponding plaintext passwords.
+ 
+If You Use a Salt, Rainbow Tables Can No Longer Be Used to Compute Passwords
+
+Signing, Certificates, and PKI
+Signing
+Ensures that the contents of a message has not been altered in transit.
+Certificates
+A certificate is digital file that contains a public key along with other information that proves identity and ownership of that key.
+ 
+Signing and Verification
+Public Key Infrastructure (PKI)
+Certificate Authority (CA) - Trusted third party that issues certificates.
+Verification Authority (VA) - Verifies ownership of the certificates.
+Registration Authority (RA) - Verifies that the party requesting a certificate is legitimate.
+ 
+PKI
+PRÓXIMO
+
+Common Issues with PKI
+There are a number of common issues associated with PKI. Obviously, writing down a key is bad, but due to the length, it is not practical to write keys down so this practice isn't common.
+•	Key Rotation - Unlike certificates, keys do not have an expiration date. Without that forcing function, you must change keys regularly. This prevents someone from stealing the key and creating their own certificate to circumvent protections.
+•	Using Outdated Protocols - There have been several iterations of secure protocols. As vulnerabilities are found in these protocols, it is important to update them accordingly.
+•	Key Storage - Store keys in a secure centralized solution such as Vault. This will provide protection and auditing for users who access the keys.
+•	Human Error - Misconfiguration or improper handling of certificates and keys can cause widespread issues.
+•	Insufficient Key Length - Can be vulnerable to brute force attack.
+We use encryption in communication to protect the confidentiality and integrity of our messages.
+Man-in-the-Middle (MitM)
+A malicious third party acts as an intermediary for all communications between the sender and receiver. This third party can view and/or alter communications.
+ 
+MitM
+TLS/SSL
+Widely used protocol for establishing encrypted communication between systems.
+Secure Socket Layer (SSL)
+Originally developed in the 1990s to encrypt communications.
+Transport Layer Security (TLS)
+Successor to SSL and currently the standard for encrypted communications.
+ 
+TLS
+1.	First, the client sends an unencrypted message to the server requesting an encrypted session.
+2.	The server responds by sending its certificate, which (as we learned earlier) contains its public key.
+3.	The client verifies the certificate
+4.	The client generates a ‘pre-master’ key
+5.	The client uses the public key from the certificate to encrypt the ‘pre-master’ key and then sends it to the server.
+6.	The server (using its private key) decrypts the premaster key
+7.	Both the client and the server use the premaster key to create a shared secret key
+8.	The client sends a message to the server which is encrypted by the shared secret key
+9.	The server decrypts the message using the shared secret key and verifies the message.
+10.	The server then sends back a message encrypted with the shared secret key to confirm everything is okay.
+11.	We have now established a secure session and can exchange messages encrypted using a single, shared key.
+
+Solution:
+SSL stripping is the process of forcing a connection to use HTTP instead of HTTP/S. This enables an attacker to sniff traffic (MitM) and view all communication in plaintext. A possible prevention technique would be to enable HSTS.
+
+Practical Cryptography
+Now that we’ve completed this lesson you have a good foundation of cryptographic strategies including:
+•	Encryption
+•	Hashing
+•	Signing
+•	Certificates
+•	PKI
+•	Encrypted Communication
+Risk Evaluation
+In this lesson, we’ll be discussing Risk Evaluation. The ability to evaluate risks is a critical responsibility for a security engineer.
+In this lesson we will cover:
+•	Threats, Vulnerabilities, and Asset Valuation
+•	Mitigation and Prioritizing Risk
+•	Threat Models
+Big Picture and Developing Your Intuition about Risk Evaluation
+Most organizations’ information technology operations are incidental and performed in order to support the products or services they are offering. As security engineers, our ultimate goal is to reduce the risk of those operations.
+
+Threats, Vulnerabilities, and Asset Valuation
+Vulnerability
+A vulnerability is a weakness in a system or software that can be exploited to make a system behave in an unintended way.
+Threat
+A threat is a hypothetical event wherein an attacker could use (or exploit) a vulnerability.
+Asset Valuation
+Asset - An asset in the context of information security is anything of value to a business that is related to information systems.
+
+Mitigation and Prioritizing Risk
+Mitigation
+Mitigation is an action taken to reduce the risk of a given threat.
+Risk Formula
+Risk = Threat x Vulnerability x Impact
+ 
+Threat Times Vulnerability Equals the Likelihood
+Looking at the above image, we see Likelihood becomes:
+Likelihood = Threat x Vulnerability
+Finally, this makes Risk equal to:
+Risk = Likelihood x Impact
+Remember, these aren't exact values. This is a formula that can be used to estimate risk for your organization.
+Impact - Measures the consequence of a successful attack.
+Common Vulnerability Scoring System (CVSS) - CVSS provides a way to capture the principal characteristics of a vulnerability and produce a numerical score reflecting its severity (1 out of 10).
+PRÓXIMO
+Solution: Mitigations and Prioritizing Risk
+Remember...
+Risk = Likelihood x Impact
+
+Threat Models
+Threat Model
+Threat Modeling is the process for identifying potential security threats and vulnerabilities, evaluating the risk, determining mitigations for such threats, and prioritizing any mitigations or fixes to the system.
+Threat Model Frameworks
+•	STRIDE
+•	DREAD
+•	PASTA
+•	VAST
+•	NIST
+STRIDE
+•	Spoofing - Spoofing occurs when someone masquerades as a person or system they are not.
+•	Tampering - Someone alters data
+•	Repudiation - The ability to deny something
+•	Information Disclosure - Threat of leaking privileged or sensitive information
+•	Denial of Service - Aims to render a service or system unusable
+•	Elevation of Privilege - A user performs actions not intended for their level of permissions
+________________________________________
+Why Use Threat Models?
+Why Threat Models?
+•	Understand System Architecture
+•	Develop a List of Threats
+•	Rank Threats
+•	Suggest Mitigations
+Threat Actor - Someone or something that causes a threat.
+Threat Model Example
+ 
+PRÓXIMO
+Risk Evaluation
+Simply discovering security issues is only one step to proper security. Without an effective way to evaluate and communicate risk, much security work will go undone.
+Properly understanding the risk relative to your organization is a key function in the role of a security engineer.
+Security Review and Audit
+In this lesson we will discuss the role of audit in security and how we can support the audit process as security engineers. Additionally, we will discuss security reviews, how to conduct them, and why they're important.
+In this lesson we will cover:
+•	Infrastructure and Control Audits
+•	Design, Architecture, and Code Reviews
+•	Industry Standards and Best Practices
+•	Writing Reports and Recommendations
+
+	
+Audit plays an important role in overall security strategy. 3rd parties such as clients and regulators have a vested interest in your security. Auditors will assert that you are doing the the things you say you are doing.
+When designing security solutions it is important to always consider how this can be audited. Audit serves to prove that you do what you claim when it comes to security operations.
+
+Controls
+The measures an organization takes to reduce risk.
+Preventive
+Security measures to stop an event from occurring. They can be:
+•	Physical
+•	Technical
+•	Procedural
+Detective
+Security measures to detect or alert on an event or incident
+Corrective
+Security measures are taken to repair damage.
+Audit
+An official examination or review.
+Information Systems Security Audit
+Systematic assessment of an organization's security operations.
+Control Frameworks - Frameworks provide a structure that can be used to manage security controls.
+Control Audits - Performed by a 3rd party to test the efficacy of your controls.
+Infrastructure Audits - Performed internally to assess our information systems infrastructure.
+Security Review
+A security review is a process for identifying risks in a given scenario.
+ 
+*The Security Review Process
+•	Design - Assess a proposed design and highlight areas to consider when building out the system.
+•	Architecture - Assess a proposed (or in some cases already built) architecture.
+•	Code - Aims to identify security issues in the source code.
+Design Questions:
+•	What type of data we will be processing and storing.
+•	Is it new?
+•	Is it a protected type?
+•	Where will the system be hosted? On-prem or public cloud?
+•	Any new ‘risky’ processes or features?
+•	New encryption or authorization?
+•	New user functionality?
+Architecture Questions:
+•	Tell me about how you’re encrypting __.
+•	Algorithm
+•	How is data stored?
+•	How is it encrypted?
+•	How is it accessed?
+•	Dig into APIs.
+Code Questions:
+•	How are you sanitizing output and verifying input?
+•	What third-party libraries are you using?
+•	Are there any hard-coded secrets?
+Frameworks
+•	Independent Parties
+•	CIS Critical Security Controls
+•	ISO 27001
+•	PCI DSS
+•	Government Organizations
+•	NIST Cybersecurity Framework
+•	Healthcare Insurance Portability and Accountability Act (HIPAA)
+Below is a sample report to give you an idea of what a basic report might contain.
+Methodology
+Testing and vulnerability rankings are based on NIST 800-30 threat rankings methodology. The following section outlines the NIST-based scoring methodology applied to the assessment findings:
+	Informational	Low Impact	Moderate Impact	High Impact	Critical Impact
+High Likelihood	Informational	Low	Moderate	High	Critical
+Moderate Likelihood	Informational	Low	Moderate	Moderate	High
+Low Likelihood	Informational	Low	Low	Moderate	Moderate
+Threat Likelihood
+•	High: A threat actor is highly likely to create an event
+•	Moderate: A threat actor is likely to create an event
+•	Low: A threat actor is unlikely to create an event
+Threat Impact
+•	Critical: The event would have a catastrophically negative impact on the organization.
+•	High: The event would have a severe negative impact on the organization.
+•	Moderate: The event would have a negative impact on the organization.
+•	Low: The event would have a limited negative impact on the organization.
+•	Informational: The event would have a negligible impact on the organization.
+Level of Risk: Likelihood x Impact
+•	Critical: The event would have multiple severe or catastrophic negative effects on the organization.
+•	High: The event would have a catastrophic negative effect on the organization.
+•	Moderate: The event would have a negative effect on the organization.
+•	Low: The event would have a limited negative impact on the organization
+•	Informational: The event would have a negligible impact on the organization.
+________________________________________
+Scope
+The assessment was performed with the following targets in scope:
+http://www.my-application.com:8080
+https://www.st-my-application.com
+https://www.prod1.my-application.com
+________________________________________
+Executive Summary
+The assessment team conducted a penetration test for “Your Company” from October 10 – October 15, 2020. This test was designed to provide “Your Company” with an assessment of your web application from the perspective of a malicious external 3rd party.
+Synopsis
+The assessment team discovered several vulnerabilities including cross-site scripting, SQL injection, and denial of service.
+________________________________________
+Finding and Recommendations
+UNAUTHENTICATED SQL INJECTION – CRITICAL
+Cross-Site Scripting
+A SQL injection attack consists of the insertion or “injection” of a SQL query via the input data from the client to the application. A successful SQL injection exploit can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system. SQL injection attacks are a type of injection attack, in which SQL commands are injected into data-plane input in order to effect the execution of predefined SQL commands. Source: OWASP
+Details
+The assessment team identified a SQL Injection attack on the login page of your application. The team was able to successfully exploit this vulnerability to bypass authentication and access restricted pages.
+This was discovered on:
+https://www.my-application.com
+Recommendations
+To address the SQL injections issues, the assessment team recommends:
+•	Using parameterized queries when executing SQL with user input
+•	Only allow expected inputs
+
+
+
+
+
+
+
+
+
+
+
+
